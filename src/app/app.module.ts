@@ -10,6 +10,9 @@ import { TestAngularComponentComponent } from './test-angular-component/test-ang
     AppComponent,
     TestAngularComponentComponent
   ],
+  entryComponents: [
+    TestAngularComponentComponent
+  ],
   imports: [
     BrowserModule
   ],
