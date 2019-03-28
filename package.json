@@ -1,6 +1,9 @@
 {
   "name": "angular-app-as-web-component-example",
-  "version": "0.0.0",
+  "version": "0.0.1",
+  "description": "Angular 7 app wrapped as web component",
+  "repository": "https://github.com/jussikinnula/angular-app-as-web-component-example",
+  "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -10,7 +13,6 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
-  "private": true,
   "main": "dist/angular-app-as-web-component-example.js",
   "dependencies": {},
   "devDependencies": {
