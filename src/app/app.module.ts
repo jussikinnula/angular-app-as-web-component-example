@@ -7,6 +7,8 @@ import { TestAngularComponentComponent } from './test-angular-component/test-ang
 
 declare var WebComponents: any;
 
+let customElementDefined = false;
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +29,12 @@ export class AppModule {
   constructor(private injector: Injector) {
     const testAngularComponentElement = createCustomElement(TestAngularComponentComponent, { injector });
     window.addEventListener('WebComponentsReady', () => {
-      customElements.define('test-angular-component', testAngularComponentElement);
+      if (!customElementDefined && customElements) {
+        customElements.define('test-angular-component', testAngularComponentElement);
+        customElementDefined = true;
+      } else {
+        console.log('error');
+      }
     });
   }
 
