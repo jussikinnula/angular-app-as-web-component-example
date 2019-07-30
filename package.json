@@ -50,7 +50,6 @@
     "tslib": "^1.9.0",
     "tslint": "~5.11.0",
     "typescript": "~3.2.2",
-    "web-animations-js": "^2.3.2",
     "zone.js": "~0.8.26"
   }
 }
