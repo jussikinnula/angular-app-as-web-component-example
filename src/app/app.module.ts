@@ -24,7 +24,9 @@ import { TestAngularComponentComponent } from './test-angular-component/test-ang
 export class AppModule {
   constructor(private injector: Injector) {
     const testAngularComponentElement = createCustomElement(TestAngularComponentComponent, { injector });
-    customElements.define('test-angular-component', testAngularComponentElement);
+    if (window && window.customElements) {
+      window.customElements.define('test-angular-component', testAngularComponentElement);
+    }
   }
 
   ngDoBootstrap() {}
