@@ -29,11 +29,16 @@ export class AppModule {
   constructor(private injector: Injector) {
     const testAngularComponentElement = createCustomElement(TestAngularComponentComponent, { injector });
     window.addEventListener('WebComponentsReady', () => {
-      if (!customElementDefined && customElements) {
-        customElements.define('test-angular-component', testAngularComponentElement);
-        customElementDefined = true;
+      if (customElements) {
+        if (!customElementDefined) {
+          customElements.define('test-angular-component', testAngularComponentElement);
+          customElementDefined = true;
+          console.log('angular-app-as-web-component custom element defined');
+        } else {
+          console.error('angular-app-as-web-component custom element already defined');
+        }
       } else {
-        console.log('error');
+        console.error('customElements not defined');
       }
     });
   }
