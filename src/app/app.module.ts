@@ -26,7 +26,9 @@ declare var WebComponents: any;
 export class AppModule {
   constructor(private injector: Injector) {
     const testAngularComponentElement = createCustomElement(TestAngularComponentComponent, { injector });
-    WebComponents.waitFor(() => customElements.define('test-angular-component', testAngularComponentElement));
+    window.addEventListener('WebComponentsReady', () => {
+      customElements.define('test-angular-component', testAngularComponentElement);
+    });
   }
 
   ngDoBootstrap() {}
