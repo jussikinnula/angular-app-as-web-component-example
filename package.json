@@ -1,6 +1,6 @@
 {
   "name": "angular-app-as-web-component-example",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Angular 7 app wrapped as web component",
   "repository": "https://github.com/jussikinnula/angular-app-as-web-component-example",
   "license": "MIT",
