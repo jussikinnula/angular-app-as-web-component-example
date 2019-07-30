@@ -5,6 +5,8 @@ import { createCustomElement } from '@angular/elements';
 import { AppComponent } from './app.component';
 import { TestAngularComponentComponent } from './test-angular-component/test-angular-component.component';
 
+declare var WebComponents: any;
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,9 +26,7 @@ import { TestAngularComponentComponent } from './test-angular-component/test-ang
 export class AppModule {
   constructor(private injector: Injector) {
     const testAngularComponentElement = createCustomElement(TestAngularComponentComponent, { injector });
-    if (window && window.customElements) {
-      window.customElements.define('test-angular-component', testAngularComponentElement);
-    }
+    WebComponents.waitFor(() => customElements.define('test-angular-component', testAngularComponentElement));
   }
 
   ngDoBootstrap() {}
