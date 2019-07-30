@@ -49,7 +49,7 @@ import 'core-js/es6/reflect';
 
 /** IE10 and IE11 require matches workaround */
 if (!Element.prototype.matches) {
-  Element.prototype.matches = (<any>Element.prototype).msMatchesSelector || Element.prototype.webkitMatchesSelector;
+  Element.prototype.matches = (Element.prototype as any).msMatchesSelector || Element.prototype.webkitMatchesSelector;
 }
 
 /**
@@ -83,3 +83,8 @@ import 'zone.js/dist/zone';  // Included with Angular CLI.
 /***************************************************************************************************
  * APPLICATION IMPORTS
  */
+if (!window.customElements) {
+  require('document-register-element');
+} else {
+  require('@webcomponents/webcomponentsjs/custom-elements-es5-adapter');
+}
